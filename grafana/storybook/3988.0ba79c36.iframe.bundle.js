@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_grafana_ui=self.webpackChunk_grafana_ui||[]).push([[3988],{"../../node_modules/@storybook/addon-docs/dist/DocsRenderer-3PUGWF3O.mjs":function(d,s,o){o.d(s,{DocsRenderer:function(){return n.f}});var n=o("../../node_modules/@storybook/addon-docs/dist/chunk-S4VUQJ4A.mjs")}}]);

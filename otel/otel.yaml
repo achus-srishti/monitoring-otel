@@ -1,0 +1,45 @@
+receivers:
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'otel-collector'
+          scrape_interval: 5s
+          metrics_path: /actuator/prometheus
+          static_configs:
+            - targets: ['127.0.0.1:8080']
+  otlp:
+    protocols:
+      grpc:
+        endpoint: localhost:4317
+      http:
+        endpoint: localhost:4318
+processors:
+  batch:
+    timeout: 10s
+
+exporters:
+  debug/noop:
+    verbosity: detailed
+  otlp/jaeger:
+    endpoint: "localhost:9090"
+    tls:
+      insecure: true
+  prometheus:
+    endpoint: "localhost:9091"
+
+extensions:
+  health_check:
+  pprof:
+  zpages:
+
+service:
+  extensions: [health_check]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp/jaeger]
+    metrics:
+      receivers: [prometheus]
+      processors: [batch]
+      exporters: [prometheus]

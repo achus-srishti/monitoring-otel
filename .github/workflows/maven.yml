@@ -18,6 +18,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./otel-filter-agent
 
     steps:
     - uses: actions/checkout@v4
@@ -27,7 +30,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-        working-directory: ./otel-filter-agent
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 

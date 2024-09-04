@@ -38,3 +38,6 @@ jobs:
         name: Package
         path: ./otel-filter-agent/target/otel-extension-0.1.jar
         if-no-files-found: error
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')

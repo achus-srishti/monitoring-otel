@@ -36,5 +36,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Package
-        path: target/otel-extension-0.1.jar
+        path: ./otel-filter-agent/target/otel-extension-0.1.jar
         if-no-files-found: error

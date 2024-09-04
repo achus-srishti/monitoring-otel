@@ -32,3 +32,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Build Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Package
+        path: target
+        if-no-files-found: error

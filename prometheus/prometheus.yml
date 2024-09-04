@@ -15,5 +15,6 @@ alerting:
 # Here it's Prometheus itself.
 scrape_configs:
   - job_name: "microservice"
+    metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ["127.0.0.1:9091"]
+      - targets: ["127.0.0.1:8080"]

@@ -41,5 +41,4 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
-        tag_name: v0.4
         files: ./otel-filter-agent/target/otel-extension-0.1.jar
